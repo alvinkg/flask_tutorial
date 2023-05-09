@@ -1,0 +1,4 @@
+# consider ==, >=, <=, !=, ~=
+# consider using grep to avoid unneeded packages
+# pip freeze | grep -i flask >> requirements.txt
+Flask==2.3.2
