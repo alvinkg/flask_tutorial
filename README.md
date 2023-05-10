@@ -44,12 +44,20 @@ Sessions
   - We need to define a secret key if when we store session data on the server
   - app.secretkey
 
-
 - Steps
   - import session from flask
   - set up session data when method = 'POST' from form
   - check if there is data is the session under the key
-  -   
+
+## Tutorial 6
+
+Flashing a message
+
+Steps
+
+- import flash
+- add to base.html messages
+- add flash to locations where a message is required.
 
 ## References
 
