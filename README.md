@@ -20,8 +20,14 @@ pip freeze | grep -i flask >> requirements.txt
 ### Tutorial 2
 
 - How to use render_template
-  - create templates dir
-  -  
+  - create templates directory
+  - create template html file
+  - call render_template mtd to render html file
+- How to pass parameters to template
+  - add placeholders inside {{}} in html file
+  - hard code param values in backend
+- How to run pythonic logic in html
+  - use {% %} to wrap code
 
 ## References
 
