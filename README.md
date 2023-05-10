@@ -34,15 +34,16 @@ pip freeze | grep -i flask >> requirements.txt
 Sessions
 
 - 'permanent' sessions
-  - Sessions can last as long as your browser's page is open by default
+  - Your data can last as long as your browser's page is open by default
   - If you are redirected to another page all your data will need to be redirected by code
-  - The alternative is to store data on the server for the duration of your session
-
+  - The alternative is to store data on the server for the duration of your session, that is as long as your browser is open
+  - To keep your session data after the browser is closed, define the session lifetime
+- permanent sessions lifetime
+  - We can define the session lifetime to make them last longer than the browser lifetime
 - secret key
   - We need to define a secret key if when we store session data on the server
   - app.secretkey
-- permanent sessions lifetime
-  - We can define the session lifetime to make them temporal
+
 
 - Steps
   - import session from flask
