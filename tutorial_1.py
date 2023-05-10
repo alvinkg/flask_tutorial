@@ -9,14 +9,14 @@ def home():
     return "Hello! This is the main page <h1>Hello<h1>"
 
 # how to get variables passed in url as parameters
-@app.route("/<name>")
-def user(name):
-    return f'Hello {name}!'
+@app.route("/<firstname>,<lastname>")
+def user(firstname, lastname):
+    return f'Hello {firstname} {lastname}!'
 
 # how to redirect users
-@app.route('/admin')
+@app.route('/admin/')
 def admin():
-    return redirect(url_for('user', name='alvin'))
+    return redirect(url_for('user', firstname='alvin', lastname='lim'))
 
 if __name__ == "__main__":
     app.run()
