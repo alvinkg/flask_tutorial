@@ -29,6 +29,27 @@ pip freeze | grep -i flask >> requirements.txt
 - How to run pythonic logic in html
   - use {% %} to wrap code
 
+## Tutorial 5
+
+Sessions
+
+- 'permanent' sessions
+  - Sessions can last as long as your browser's page is open by default
+  - If you are redirected to another page all your data will need to be redirected by code
+  - The alternative is to store data on the server for the duration of your session
+
+- secret key
+  - We need to define a secret key if when we store session data on the server
+  - app.secretkey
+- permanent sessions lifetime
+  - We can define the session lifetime to make them temporal
+
+- Steps
+  - import session from flask
+  - set up session data when method = 'POST' from form
+  - check if there is data is the session under the key
+  -   
+
 ## References
 
 [video](https://www.youtube.com/watch?v=mqhxxeeTbu0)
