@@ -1,43 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Home Page!</h1>
-    <p>Below I pass value of param 'content'</p>
-    <p>Hello {{content}}!</p>
-    <p>Below I pass value of param 'r'</p>
-    <p>Hello {{r}}!</p>
-    <p>Below I run a for loop n times printing out 'Hello'</p>
-    {% for _ in range(10)%}
-        <p>Hello</p>
-    {% endfor %}
-
-    <p> Below we run a if loop nested in a for loop</p>
-    {% for x in range(10)%}
-        {% if x % 2 == 1%}
-            <p>{{x}}</p>
-        {% endif%}
-    {% endfor %}
-
-    <p>Below we create a list</p>
-    {% for i in list %}
-        <p>{{i}}</p>
-    {% endfor %}
-
-    <p>Below we list filtered with if loop</p>
-    {% for i in list%}
-        {% if i == 'tim' %}
-            <p>{{i}}</p>
-        {% elif i == 'john' %}
-            <p>Alice</p>
-        {% else %}
-            <p>George</p>
-        {% endif %}
-    {% endfor %}
-</body>
-</html> 
+<!-- This makes this file an extension of base.html -->
+{% extends "base.html" %}
+<!-- title will show on tab 'Home Page' -->
+{% block title %} Home Page {% endblock %}
+<!-- This defines what is inside the content block -->
+{% block content %}
+<h1>Tests</h1>
+{% endblock %}
