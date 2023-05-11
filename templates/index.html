@@ -4,11 +4,11 @@
     
     <h1>Home Page</h1>
 
-    
     {% if "user" in session: %}
 
-        <p>Welcome {{user}}</p>
-    {% else%}
-        <p>Welcome</p>
+        <p>Welcome, {{user}}</p>
+    {% else %}
+        <p>Welcome to the Home Page</p>
     {% endif %}
+
 {% endblock %}
