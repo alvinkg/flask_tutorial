@@ -107,6 +107,23 @@ app.register_blueprint(second, url_prefix="")
 
 [exploreflask.com](https://exploreflask.com/en/latest/blueprints.html)
 
+## Tutorial #11 How to deploy Flask to a Linux server
+
+Tim recommended a few apps:
+
+- PuTTY
+- Bitvise SSH Client
+- Bitvise SSH Server
+He uploads his Flask app into a linode server.
+Since I am using DigitalOcean I will place the page link below
+[How to deploy a Flask app to Digital Ocean's app platform](https://dev.to/ajot/how-to-deploy-a-flask-app-to-digital-oceans-app-platform-goc)
+[Deploy a Flask App Using Gunicorn to App Platform](https://docs.digitalocean.com/tutorials/app-deploy-flask-app/)
+```bash
+https://docs.digitalocean.com/tutorials/app-deploy-flask-app/
+
+https://dev.to/ajot/how-to-deploy-a-flask-app-to-digital-oceans-app-platform-goc
+```
+
 ## References
 
 [video](https://www.youtube.com/watch?v=mqhxxeeTbu0)
