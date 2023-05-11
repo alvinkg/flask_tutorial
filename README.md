@@ -117,7 +117,9 @@ Tim recommended a few apps:
 He uploads his Flask app into a linode server.
 Since I am using DigitalOcean I will place the page link below
 [How to deploy a Flask app to Digital Ocean's app platform](https://dev.to/ajot/how-to-deploy-a-flask-app-to-digital-oceans-app-platform-goc)
+
 [Deploy a Flask App Using Gunicorn to App Platform](https://docs.digitalocean.com/tutorials/app-deploy-flask-app/)
+
 ```bash
 https://docs.digitalocean.com/tutorials/app-deploy-flask-app/
 
