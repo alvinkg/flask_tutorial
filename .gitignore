@@ -1,3 +1,6 @@
+.gitignore
 .py_cache
 .DS_Store
 .python-version
+__pycache__/tenth.cpython-39.pyc
+__pycache__/second.cpython-39.pyc
