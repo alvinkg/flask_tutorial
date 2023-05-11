@@ -49,15 +49,32 @@ Sessions
   - set up session data when method = 'POST' from form
   - check if there is data is the session under the key
 
-## Tutorial 6
-
-Flashing a message
+## Tutorial 6: Flashing a message
 
 Steps
 
 - import flash
 - add to base.html messages
 - add flash to locations where a message is required.
+
+## Tutorial 7: Using SQLAlchemy dB
+
+## Tutorial 9: Static Files
+
+This includes css stylesheets and images.
+We create a directory 'static' and store our static files inside, using sub-directories like images.
+
+### CSS
+
+- We first add a style.css stylesheet to the static folder.
+- Add bootstrap script inside style.css
+  - body {color:aqua;}
+- Link to style.css inside the html file
+- We can add our default bootstrap cdn link above to allow our style.css stylesheet to overwrite it. See below.
+  
+```bash
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+```
 
 ## References
 
