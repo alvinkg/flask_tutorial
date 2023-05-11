@@ -121,12 +121,6 @@ Since I am using DigitalOcean I will place the page link below
 
 [Deploy a Flask App Using Gunicorn to App Platform](https://docs.digitalocean.com/tutorials/app-deploy-flask-app/)
 
-```bash
-https://docs.digitalocean.com/tutorials/app-deploy-flask-app/
-
-https://dev.to/ajot/how-to-deploy-a-flask-app-to-digital-oceans-app-platform-goc
-```
-
 ## References
 
 [video](https://www.youtube.com/watch?v=mqhxxeeTbu0)
