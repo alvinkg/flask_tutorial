@@ -59,6 +59,17 @@ Steps
 
 ## Tutorial 7: Using SQLAlchemy dB
 
+Steps
+
+- install flask-sqlalchemy
+
+  ```bash
+  % pip install flask-sqlalchemy
+  ```
+
+Then just import sqlalchemy as required.
+
+
 ## Tutorial 9: Static Files
 
 This includes css stylesheets and images.
