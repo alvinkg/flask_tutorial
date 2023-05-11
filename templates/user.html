@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}User{% endblock %}
+
 {% block content%}
 
     {% with messages = get_flashed_messages() %}
@@ -10,5 +11,15 @@
         {% endif %}
     {% endwith %}
 
-<h1>Hello {{user}}</h1>
+    {% if "user" in session: %}
+        <p>Hello {{user}} </p>
+    {% else %}
+        <p>Hello User </p>
+    {% endif %}
+
+<form action="#" method = "POST">
+    <!-- get email from server if available, else placeholder -->
+    <input type="email" name="email" placeholder="Enter Email" value="{{email if email}}"/>
+    <input type="submit" value="submit"/>
+</form>
 {% endblock %}
