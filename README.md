@@ -76,6 +76,37 @@ We create a directory 'static' and store our static files inside, using sub-dire
 <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
 ```
 
+## Tutorial 10 Blueprints
+
+Blueprints allow us to organize our code better, either functionally or into apps (referred to as divisions in exploreflask.com).  If the code is really meant to be together then blueprints are a collection of views.  Should we expect them to work as standalone apps, then divisions is the way to go.  Each app or division will have its own templates and static directories, making it easy to pass along to someone.
+
+Steps
+
+- import Blueprint into the new app's python file.
+
+```bash
+from flask import Blueprint
+```
+
+- register the blueprint variable in the main view python file.
+
+```bash
+second = Blueprint('second', __name__, static_folder='static', template_folder='templates')
+```
+
+- import the blueprint variable from the other view file and register it.
+
+```bash
+from second import second
+
+then...
+app.register_blueprint(second, url_prefix="")
+```
+
+### Resources
+
+[exploreflask.com](https://exploreflask.com/en/latest/blueprints.html)
+
 ## References
 
 [video](https://www.youtube.com/watch?v=mqhxxeeTbu0)
