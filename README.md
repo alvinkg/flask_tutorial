@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 pip freeze | grep -i flask >> requirements.txt
 
-## Tutorial 1
+## Tutorial 1 How to Make Websites with Python
 
 - What is Flask
   - microweb framework when compared to Django
@@ -47,7 +47,7 @@ if __name__ == "__main__":
   app.run()
 ```
 
-#### Create a home page using a decorator
+### Create a home page using a decorator
 
 ```bash
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
  
 ```
 
-#### How to user redirect and url_for methods
+### How to user redirect and url_for methods
 
 First import redirect and url_for
 
@@ -93,9 +93,9 @@ def admin():
   return redirect(url_for('user', firstname='Tom', lastname='Wong'))
 ```
 
-### Tutorial 2
+## Tutorial 2 HTML Templates
 
-#### Build web pages from html files with render_template
+### Build web pages from html files with render_template
 
 Create templates directory to store all the html files
 Create template using a html file eg. index.html
@@ -107,11 +107,11 @@ def Home():
   return render_template('index.html')
 ```
 
-#### Pass values to web pages
+### Pass values to web pages
 
 We can pass values and lists to web pages by enclosing them with {{}} in the web pages.  The methods define and pass the values in the return statement.
 
-#### Add pythonic logic to web pages
+### Add pythonic logic to web pages
 
 Write python in html by enclosing the code with the {% %} and ending with {% %}
 
@@ -121,6 +121,36 @@ Write python in html by enclosing the code with the {% %} and ending with {% %}
   <p> Hello </p>
 {% endfor %}
 ```
+
+## Tutorial 3 Adding Bootstrap and Template Inheritance
+
+### Create a base template to work off with Flask Inheritance
+
+We select a base template or create one from scratch.  We add {% block <block name>>%} that identifies the block, followed by  the {%endblock %}, marking out the locations of the changes.
+For each child page, we extend at the top of the file the base with {% extends "path to base template" %}, then we provide the contents by filling in between each block.
+
+We do this to avoid repeating code.  For example most pages need a navbar that is common.  This helps in verson control and ensures our changes are fully implemented.
+
+### Using Bootstrap to add a navbar
+
+First add to the <head> tag just under the <title> tag the link to the css code.
+
+```bash
+<title>{% block title %}{%endblock%}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  ```
+
+Add the following javascript code via the script just before the <body> tag.
+
+```bash
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+```
+
+We can make additional modifications to change the navbar color, responsiveness and location.
+
+### Use Bootstrap to create a navbar
+
 
 If - elif - endif also works.
 
