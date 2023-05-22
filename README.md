@@ -171,6 +171,30 @@ We can add components to our web pages.  Here we add a navbar from Bootstrap.  I
 
 ### Tutorial 4: HTTP Methods (GET & POST ) and retrieving form Data
 
+GET is to request for info from the server  transparently for example via the url.  
+POST is to make a request for info securely via encrypted channels.
+
+We first create index4.html to extend from base.html.
+Next we define method 'login' in tutorial_4.py that render_template 'index4.html'.
+
+We add in index4.html inside the block 'content' the following items:  a label 'Names', a text field and a submit button.
+
+```bash
+{%block content%}
+
+<form action="#" method="POST">
+    <p>Names:</p>
+    <p><input type="text" name="name"/></p> 
+    <p><input type="submit" submit="submit"/></p>
+
+</form>
+
+{%endblock%}
+```
+
+### Using the request method to determine what methods are being used
+
+
 ## Tutorial 5
 
 Sessions
