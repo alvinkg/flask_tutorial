@@ -16,7 +16,7 @@ def user(firstname, lastname):
 # how to redirect users
 @app.route('/admin/')
 def admin():
-    return redirect(url_for('user', firstname='alvin', lastname='lim'))
+    return redirect(url_for('home', firstname='alvin', lastname='lim'))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
