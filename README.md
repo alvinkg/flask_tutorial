@@ -109,7 +109,16 @@ def Home():
 
 ### Pass values to web pages
 
-We can pass values and lists to web pages by enclosing them with {{}} in the web pages.  The methods define and pass the values in the return statement.
+We can pass values and lists to web pages by enclosing them with {{ }} in the web pages.  The methods define and pass the values in the return statement.
+
+```bash
+    <p> Below we run a if loop nested in a for loop</p>
+    {% for x in range(10)%}
+        {% if x % 2 == 1%}
+            <p>{{x}}</p>
+        {% endif%}
+    {% endfor %}
+```
 
 ### Add pythonic logic to web pages
 
@@ -151,8 +160,16 @@ We can make additional modifications to change the navbar color, responsiveness 
 
 ### Use Bootstrap to create a navbar
 
+We can add components to our web pages.  Here we add a navbar from Bootstrap.  I have changed the color and the search field to dark.  Below is a snippet of what was added in base_3a.html.
 
-If - elif - endif also works.
+```bash
+  <body>
+    <div class="container">
+        <nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
+            <div class="container-fluid">
+```
+
+### Tutorial 4: HTTP Methods (GET & POST ) and retrieving form Data
 
 ## Tutorial 5
 
