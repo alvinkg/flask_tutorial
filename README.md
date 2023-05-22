@@ -10,24 +10,119 @@ pip install -r requirements.txt
 
 pip freeze | grep -i flask >> requirements.txt
 
-### Tutorial 1
+## Tutorial 1
 
+- What is Flask
+  - microweb framework when compared to Django
+    - does not come with user authentication, database connectivity though it is doable
+  - used to build websites with python, specifically the backend
+  - The frontends connect via RESTFUL API
 - How to build a flask app
+- How to use it to make websites
 - How to do a redirect with flask mtd redirect
 - How to use url_for in redirect
 - How to pass parameters encoded to your redirect
 
+### Steps
+
+#### install a virtual environment
+
+#### Install flask
+
+```bash
+% pip install flask
+```
+
+#### import Flask
+
+```bash
+% from flask import Flask
+```
+
+#### Create instance of Flask inside a python file
+
+```bash
+app = Flask(__name__)
+if __name__ == "__main__":
+  app.run()
+```
+
+#### Create a home page using a decorator
+
+```bash
+
+# instance of Flask
+app = Flask(__name__)
+
+# Home Page
+@app.route("/")
+def home('/'):
+return "Hello! This is the main page <h1>HELLO</h1>"
+
+# Page takes input from url and returns it in html
+@app.route("/<name>")
+def user(name):
+return f'Hello{name}!'
+
+# app runs if main module
+if __name__ == "__main__":
+# add paramater to auto-restart which code change detected
+  app.run(debug=True)
+ 
+```
+
+#### How to user redirect and url_for methods
+
+First import redirect and url_for
+
+A request for the page 'admin' will be redirected to 'home'.
+
+```bash
+from flask import redirect, url_for
+
+@app.route('/admin')
+def admin():
+  return redirect(url_for('home'))
+```
+
+When redirecting to a page that takes inputs, we can pass default values to the parameters required by the page we are redirecting to.
+
+```bash
+@app.route('/admin/')
+def admin():
+  return redirect(url_for('user', firstname='Tom', lastname='Wong'))
+```
+
 ### Tutorial 2
 
-- How to use render_template
-  - create templates directory
-  - create template html file
-  - call render_template mtd to render html file
-- How to pass parameters to template
-  - add placeholders inside {{}} in html file
-  - hard code param values in backend
-- How to run pythonic logic in html
-  - use {% %} to wrap code
+#### Build web pages from html files with render_template
+
+Create templates directory to store all the html files
+Create template using a html file eg. index.html
+Call render_template mtd to render html file index.html
+
+```bash
+@app.route('/')
+def Home():
+  return render_template('index.html')
+```
+
+#### Pass values to web pages
+
+We can pass values and lists to web pages by enclosing them with {{}} in the web pages.  The methods define and pass the values in the return statement.
+
+#### Add pythonic logic to web pages
+
+Write python in html by enclosing the code with the {% %} and ending with {% %}
+
+```bash
+<h1>Home Page!</h1>
+{% for _ in range(0,10) %}
+  <p> Hello </p>
+{% endfor %}
+```
+
+If - elif - endif also works.
 
 ## Tutorial 5
 
