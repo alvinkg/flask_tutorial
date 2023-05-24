@@ -150,7 +150,7 @@ First add to the <head> tag just under the <title> tag the link to the css code.
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   ```
 
-Add the following javascript code via the script just before the <body> tag.
+Add the following javascript code via the script just before the  body tag.
 
 ```bash
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
@@ -269,19 +269,41 @@ def logout():
         session.pop("user", None)
         flash(f"User '{user}' has been logged out.", "info")
     return redirect(url_for('login'))
-    ```
+```
 
 ## Tutorial 7: Using SQLAlchemy dB
 
-Steps
+### clean up session
 
-- install flask-sqlalchemy
+When logging out we need to empty the session dictionary of variables, 'user' and 'email' with the method 'session.pop'.
+
+```bash
+@app.route('/logout/')
+def logout():
+    if 'user' in session:
+        user = session['user']
+        session.pop('user', None)
+        session.pop('email', None)
+        flash(f'User {user} has logged out.', 'info')
+```
+
+### Install flask-sqlalchemy
+
+
+To showcase sqlalchemy we store the user supplied email address inside a sqlite dB.
+First install flask-sqlalchemy
+In the commmand line type:
 
   ```bash
   % pip install flask-sqlalchemy
   ```
 
-Then just import sqlalchemy as required.
+Then import sqlalchemy as required in your python file.
+
+```bash
+from flask-sqlalchemy import SQLAlchemy
+```
+
 
 
 ## Tutorial 9: Static Files
