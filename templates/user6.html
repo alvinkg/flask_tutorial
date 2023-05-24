@@ -1,0 +1,15 @@
+{%extends 'base_3a.html'%}
+{%block title%}User Page{%endblock%}
+{%block content%}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {%endfor%}
+{%endif %}
+{%endwith%}
+
+<h1>Welcome {{user}} to the User Page of Tutorial 6</h1>
+
+{%endblock%}
