@@ -12,11 +12,12 @@ pip freeze | grep -i flask >> requirements.txt
 
 ## Tutorial 1 How to Make Websites with Python
 
-- What is Flask
-  - microweb framework when compared to Django
-    - does not come with user authentication, database connectivity though it is doable
-  - used to build websites with python, specifically the backend
-  - The frontends connect via RESTFUL API
+### What is Flask
+
+- microweb framework when compared to Django
+  - does not come with user authentication, database connectivity though it is doable
+- used to build websites with python, specifically the backend
+- The frontends connect via RESTFUL API
 - How to build a flask app
 - How to use it to make websites
 - How to do a redirect with flask mtd redirect
