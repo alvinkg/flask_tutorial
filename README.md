@@ -194,34 +194,81 @@ We add in index4.html inside the block 'content' the following items:  a label '
 
 ### Using the request method to determine what methods are being used
 
-
 ## Tutorial 5
 
-Sessions
+### Sessions
 
-- 'permanent' sessions
-  - Your data can last as long as your browser's page is open by default
-  - If you are redirected to another page all your data will need to be redirected by code
-  - The alternative is to store data on the server for the duration of your session, that is as long as your browser is open
-  - To keep your session data after the browser is closed, define the session lifetime
-- permanent sessions lifetime
-  - We can define the session lifetime to make them last longer than the browser lifetime
-- secret key
-  - We need to define a secret key if when we store session data on the server
-  - app.secretkey
+Sessions are a way to store  information (user name, etc.) about a website visit between pages. The session data may be removed once the visitor logs out or leaves.
 
-- Steps
-  - import session from flask
-  - set up session data when method = 'POST' from form
-  - check if there is data is the session under the key
+To use sessions we do the following:
 
-## Tutorial 6: Flashing a message
+```bash
+from flask import Flask, request, session, render_template, url_for
+from datetime import timedelta
 
-Steps
+app = Flask(__name__)
 
-- import flash
-- add to base.html messages
-- add flash to locations where a message is required.
+# Session data is encrypted on the server and needs a secret key
+app.secret_key = 'hello'
+app.permanent_session_lifetime = timedelta(minutes=5)
+```
+
+With session activated, data is stored for as long the browswr window is maintained open.  During this time data about the user can be stored in a dictionary under 'session'.  There is no need to pass around variables.
+Alternatively we can determine exactly how long the data is kept in the server irrespective of the browser status.  app.permanent_session_lifetime defines how long session data should be kept, even after logout or browser closure.  After that we need to define the value of session.permanent to be true.
+
+Now, whenever data is posted, it can be stored in the dictionary of session.
+
+```bash
+@app.route('/login/', methods = ['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        name = request.form['name']
+        # pass 'name' to session
+        session["user"] = name
+```
+
+## Tutorial 6: Message Flashing
+
+Flask allows sending of text messages to give status info.
+
+import flash
+
+```bash
+from flask import flash
+```
+
+Add flash messages to your python code to reflect an event or status
+
+```bash
+flash('You have been logged out successfully.', 'info')
+```
+
+To display the messages add the code below to the page to for loop through the flashed messages and flash them.
+
+### with statement
+
+By using the with statement we achieve neat code that ensures proper acquistion and release of resources in the background.  Otherwise these resources remaining may constitute a memory leak or loss data sitting in a buffer.
+
+```bash
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{message}}</p>
+    {% endfor %}
+  {% endif %}
+```
+
+One issue remains, the message needs some conditional statements.  When logging out, code logic so that it is flashed when the user is logged in a a session.  I personalized the code by getting the user name from the session and adding it to the message.
+
+```bash
+@app.route('/logout/')
+def logout():
+    if 'user' in session:
+        user = session['user']
+        session.pop("user", None)
+        flash(f"User '{user}' has been logged out.", "info")
+    return redirect(url_for('login'))
+    ```
 
 ## Tutorial 7: Using SQLAlchemy dB
 
